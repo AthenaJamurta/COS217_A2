@@ -41,18 +41,19 @@ char *Str_concat(char pcs1[], const char pcs2[])
 int Str_compare(const char pcs1[],const char pcs2[])
 {
     size_t i;
-
+    char pcs1Copy = (char) pcs1;
+    char pcs2Copy = (char) pcs2;
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
 
-    for (i = 0; pcs1[i] == pcs2[i]; i++) {
-        if ((pcs1[i] == '\0') || (pcs2[i] == '\0') ) {
+    for (i = 0; pcs1Copy[i] == pcs2Copy[i]; i++) {
+        if ((pcs1Copy[i] == '\0') || (pcs2Copy[i] == '\0') ) {
                 return 0;
         }
-        if (pcs1[i] > pcs2[i]) {
+        if (pcs1Copy[i] > pcs2Copy[i]) {
             return 1;
         }
-        else if (pcs1[i] < pcs2[i]) {
+        else if (pcs1Copy[i] < pcs2Copy[i]) {
             return -1;
         }
     }
