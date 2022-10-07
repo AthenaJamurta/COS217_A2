@@ -1,3 +1,5 @@
+
+
 size_t Str_getLength(const char *pcSrc)
 {
     const char *pcEnd;

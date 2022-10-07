@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stddef.h>
 #include <assert.h>
 /* */
 size_t Str_getLength(const char pcs[])
@@ -59,7 +60,7 @@ return 0;
 }
 
 
-char *Str_search( char pcs1[], char pcs2[])
+char *Str_search(const char pcs1[], const char pcs2[])
 {
     size_t s1length = Str_getLength(pcs1);
     size_t s2length = Str_getLength(pcs2);
