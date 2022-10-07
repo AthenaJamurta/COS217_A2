@@ -49,7 +49,7 @@ char *Str_concat(char* s1, const char* s2)
 int Str_compare(const char* s1, const char* s2)
 {
     int i;
-    const char *s1Copy = (char*) s1;
+    char *s1Copy = (char*) s1;
     char *pcEnd = (char*) s1Copy; /* pointer pointing to end of string */
     assert(s1 != NULL);
     assert(s2 != NULL);
