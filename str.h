@@ -39,7 +39,7 @@ int Str_compare(char pcs1[], const char pcs2[]);
  the string pcs2 in the pcs1 string and returns a pointer to the first character of pcs2
  that appears in pcs1. Str_search asserts that the input parameters, pcs1 and pcs2, are
  not null. If one of them is null, then the function writes a message to stderr */
-char Str_search(const char pcs1[], const char pcs2[]);
+char *Str_search(const char pcs1[], const char pcs2[]);
 
 #endif
 

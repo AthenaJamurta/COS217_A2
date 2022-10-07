@@ -71,8 +71,8 @@ char *Str_Search(const char* s1, const char* s2) {
     size_t j; /* counter tracking that traversal doesn't surpass s2 length */
     size_t k; /* counter tracking that traversal doesn't surpass s1 length
  *  in inner loop*/
-    const char *s1Copy = (char*) s1;
-    const char *s2Copy = (char*) s2;
+    char *s1Copy = (char*) s1;
+    char *s2Copy = (char*) s2;
     size_t s1Length = Str_getLength(s1Copy);
     size_t s2Length = Str_getLength(s2Copy);
     assert(s1 != NULL);
