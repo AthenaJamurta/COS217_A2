@@ -20,40 +20,37 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    char *pcLineC = (char*) pcLine;
-    char *pcFromC = (char*) pcFrom;
-    char *pcToC = (char*) pcTo;
     char *pcStartOfTo = (char*) pcTo;
     char* pcStartOfString;
     size_t count;
     assert(pcLine != NULL);
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
-    pcStartOfString = Str_search(pcLineC, pcFromC);
-    pcStartOfTo = (char*) pcTo;
+    pcStartOfString = Str_search(pcLine, pcFrom);
+    pcStartOfTo = (char*)pcTo;
 
 
   if (*pcFrom == '\0') {
-      while(*pcLineC != '\0'){
-          putc(*pcLineC, stdout)
-          pcLineC++;
+      while(*pcLine != '\0'){
+          putc(*pcLine, stdout)
+          pcLine++;
       }
       return 0;
     }
 
 
-  while(*pcLineC != '\0') && (pcStartOfString != NULL)  {
-      while(pcLineC != pcPlace) {
-          putc(*pcLineC, stdout);
-          pcLineC++;
+  while(*pcLine != '\0') && (pcStartOfString != NULL)  {
+      while(pcLine != pcPlace) {
+          putc(*pcLine, stdout);
+          pcLine++;
       }
-      while(*pcToC != '\0') {
-          putc(*pcToC, stdout);
-          pcStartOfTo++;
+      while(*pcTo != '\0') {
+          putc(*pcTo, stdout);
+          pcTo++;
       }
-      pcLineC = pcLineC + Str_getLength(pcFromC);
-      pcToC = pcStartOfTo;
-      pcStartOfString = Str_search(pcLineC, pcFromC);
+      pcLine += Str_getLength(pcFrom);
+      pcTo = pcStartOfTo;
+      pcStartOfString = Str_search(pcLine, pcFrom);
       count++;
       }
   }
