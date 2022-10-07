@@ -20,7 +20,12 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   /* Insert your code here. */
+  assert(pcLine != NULL);
+  assert(pcTo != NULL);
+  assert(pcFrom != NULL);
+  if (*pcFrom == '\0') {
+
+    }
 }
 
 /*--------------------------------------------------------------------*/
