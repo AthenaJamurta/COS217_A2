@@ -45,11 +45,17 @@ int Str_compare(const char pcs1[], const char pcs2[])
     assert(pcs2 != NULL);
 
     for (i = 0; pcs1[i] == pcs2[i]; i++) {
-        if (pcs1[i] == '\0') {
+        if ((pcs1[i] == '\0') || (pcs2[i] == '\0') ) {
                 return 0;
         }
+        if (s1[i] > s2[i]) {
+            return 1;
+        }
+        else if (s1[i] < s2[i]) {
+            return -1;
+        }
     }
-    return (*pcs1[i] - *pcs2[i]);
+
 }
 
 
