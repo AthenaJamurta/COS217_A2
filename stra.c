@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <assert.h>
-/* */
+
 size_t Str_getLength(const char pcs[])
 {
-    size_t uLength = 0;
+    size_t uLength = 0; /* counter storing length */
     assert(pcs != NULL);
     while (pcs[uLength] != '\0')
         uLength++;
@@ -13,7 +13,7 @@ size_t Str_getLength(const char pcs[])
 
 char *Str_copy(char pcs1[], const char pcs2[])
 {
-    size_t i = 0;
+    size_t i = 0; /* counter keeping track of place in array traversals */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
     while (pcs2[i] != '\0') {
@@ -26,8 +26,8 @@ char *Str_copy(char pcs1[], const char pcs2[])
 
 char *Str_concat(char pcs1[], const char pcs2[])
 {
-    size_t i = 0;
-    size_t s1length = Str_getLength(pcs1);
+    size_t i = 0; /* counter keeping track of place in array traversal */
+    size_t s1length = Str_getLength(pcs1); /* length of pcs1 */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
     while (pcs2[i] != '\0') {
@@ -40,7 +40,7 @@ char *Str_concat(char pcs1[], const char pcs2[])
 
 int Str_compare(const char pcs1[],const char pcs2[])
 {
-    size_t i;
+    size_t i; /* counter keeping track of place in array traversal */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
 
@@ -61,14 +61,15 @@ return 0;
 
 char *Str_search(const char pcs1[], const char pcs2[])
 {
-    size_t s1length = Str_getLength(pcs1);
-    size_t s2length = Str_getLength(pcs2);
-    size_t i = 0;
-    size_t j;
-    size_t k;
+    size_t s1length = Str_getLength(pcs1); /* length of pcs1 */
+    size_t s2length = Str_getLength(pcs2); /* length of pcs2 */
+    size_t i = 0; /* counter tracking that traversal doesn't surpass s1 length */
+    size_t j; /* counter tracking that traversal doesn't surpass s2 length */
+    size_t k; /* counter tracking that traversal doesn't surpass s1 length
+ *  in inner loop*/
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
-    if (pcs2[0] == '\0') return pcs1[0];
+    if (pcs2[0] == '\0') return (char*)&pcs1[0];
     while ( i < s2length) {
         j = 0;
         k = i;
@@ -76,7 +77,7 @@ char *Str_search(const char pcs1[], const char pcs2[])
         while ((k < s1length) && (j < s2length) && (pcs1[i] == pcs2[i])) {
             k++;
             j++;
-            if (j == s2length) return pcs1[i];
+            if (j == s2length) return (char*)&pcs1[i];
         }
         i++;
     }
