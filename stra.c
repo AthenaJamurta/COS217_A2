@@ -37,7 +37,7 @@ char *Str_concat(char pcs1[], const char pcs2[])
     return pcs1;
 }
 
-int Str_compare(const char pcs1[], const char pcs2[])
+int Str_compare( char pcs1[], char pcs2[])
 {
     size_t i;
 
@@ -59,7 +59,7 @@ return 0;
 }
 
 
-char *Str_search(const char pcs1[], const char pcs2[])
+char *Str_search( char pcs1[], char pcs2[])
 {
     size_t s1length = Str_getLength(pcs1);
     size_t s2length = Str_getLength(pcs2);
