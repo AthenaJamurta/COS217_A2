@@ -20,14 +20,15 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-    char *pcStartOfTo = (char*) pcTo;
+    char *pcStartOfTo;
     char* pcStartOfString;
     size_t count;
     assert(pcLine != NULL);
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
-    pcStartOfString = Str_search(pcLine, pcFrom);
+
     pcStartOfTo = (char*)pcTo;
+    count = 0;
 
 
   if (*pcFrom == '\0') {
@@ -35,12 +36,13 @@ static size_t replaceAndWrite(const char *pcLine,
           putc(*pcLine, stdout)
           pcLine++;
       }
-      return 0;
+      return count;
     }
 
+    pcStartOfString = Str_search(pcLine, pcFrom);
 
   while(*pcLine != '\0') && (pcStartOfString != NULL)  {
-      while(pcLine != pcPlace) {
+      while(pcLine != pcStartOfString) {
           putc(*pcLine, stdout);
           pcLine++;
       }
