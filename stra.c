@@ -48,21 +48,21 @@ int Str_compare(const char pcs1[], const char pcs2[])
         if ((pcs1[i] == '\0') || (pcs2[i] == '\0') ) {
                 return 0;
         }
-        if (s1[i] > s2[i]) {
+        if (pcs1[i] > pcs2[i]) {
             return 1;
         }
-        else if (s1[i] < s2[i]) {
+        else if (pcs1[i] < pcs2[i]) {
             return -1;
         }
     }
-
+return 0;
 }
 
 
 char *Str_search(const char pcs1[], const char pcs2[])
 {
-    size_t s1length = Str_getLength(const char pcs1[]);
-    size_t s2length = Str_getLength(const char pcs2[]);
+    size_t s1length = Str_getLength(pcs1);
+    size_t s2length = Str_getLength(pcs2);
     size_t i = 0;
     size_t j;
     size_t k;
