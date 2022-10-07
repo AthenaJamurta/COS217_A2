@@ -23,31 +23,39 @@ static size_t replaceAndWrite(const char *pcLine,
     char *pcLineC = (char*) pcLine;
     char *pcFromC = (char*) pcFrom;
     char *pcToC = (char*) pcTo;
+    char *pcStartOfTo = (char*) pcTo;
     char* pcStartOfString;
     size_t count;
     assert(pcLine != NULL);
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
     pcStartOfString = Str_search(pcLineC, pcFromC);
+    pcStartOfTo = (char*) pcTo;
 
 
   if (*pcFrom == '\0') {
       while(*pcLineC != '\0'){
-          putchar(*pcLineC)
+          putc(*pcLineC, stdout)
           pcLineC++;
       }
       return 0;
     }
 
-  while ()
-  while((*pcLineC != '\0') && (pcStartOfString != NULL)  {
-      if (pcStartOfString == NULL) {
-          putchar(*pcLineC);
-          pcLineC++;
-      } else
-      putchar(*pcLineC);
 
-      pcLineC++;
+  while(*pcLineC != '\0') && (pcStartOfString != NULL)  {
+      while(pcLineC != pcPlace) {
+          putc(*pcLineC, stdout);
+          pcLineC++;
+      }
+      while(*pcToC != '\0') {
+          putc(*pcToC, stdout);
+          pcStartOfTo++;
+      }
+      pcLineC = pcLineC + Str_getLength(pcFromC);
+      pcToC = pcStartOfTo;
+      pcStartOfString = Str_search(pcLineC, pcFromC);
+      count++;
+      }
   }
 
 return count;

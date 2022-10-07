@@ -12,6 +12,18 @@ in the "Policies" web page (also available on armlab in the file
 ~cos217/AuthorizedSourcesList ) to this section of the readme file,
 and edit it as appropriate.
 
+The course's lectures.
+
+The course's precepts.
+
+The course's website.
+
+Documents that are referenced directly by the course's website. Such documents include the course's lecture slides and precept handouts.
+
+The course's current staff members outside of class time through Ed.
+
+Current Intro Lab TAs through visits to the Intro COS Lab.
+
 
 
 ------------------------------------------------------------------------
@@ -26,12 +38,12 @@ interaction, may additionally require the interaction being reported
 to the Committee on Discipline. Write "None" if you used no
 unauthorized sources of information.
 
-
+None
 
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
 
-It was helpfun but not fun in the slightest
+It was helpful but not fun
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
@@ -92,6 +104,7 @@ write "None."
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
+
 
 
 
