@@ -69,33 +69,26 @@ int Str_compare(const char* s1, const char* s2)
 
 char *Str_Search(const char* s1, const char* s2) {
     size_t i = 0;
-    size_t j = 0;
-    size_t k = 0;
+    size_t j;
+    size_t k;
     char *s1Copy = (char*) s1;
     char *s2Copy = (char*) s2;
     size_t s1Length = Str_getLength(s1Copy);
     size_t s2Length = Str_getLength(s2Copy);
     assert(s1 != NULL);
     assert(s2 != NULL);
-    if (*pcs2 == '\0') return (char *) pcs1;
+    if (*s2 == '\0') return (char *) s1;
     while (i < (s1Length - s2Length)) {
         k = i;
         j = 0;
         if ((s1Length + 1 - i) < s2Length) return NULL;
-        while ((k < s1length) && (j < s2length) && (*s1Copy == *s2Copy))
+        while ((k < s1Length) && (j < s2Length) && (*s1Copy == *s2Copy))
         {
             k++;
             j++;
-            if (j == s2length) return (s1Copy + i);
+            if (j == s2Length) return (s1Copy + i);
         }
         i++;
     }
     return NULL;
-}
-
-
-
-
-
-
 }
