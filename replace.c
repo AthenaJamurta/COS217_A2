@@ -45,17 +45,18 @@ static size_t replaceAndWrite(const char *pcLine,
                 putc(*pcTo, stdout);
                 pcTo++;
             }
+            count++
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
             pcStartOfString = Str_search(pcLine, pcFrom);
-            count++;
+            ;
         }
     }
 }
 
 while(*pcLine != '\0'){
-putc(*pcLine, stdout)
-pcLine++;
+    putc(*pcLine, stdout)
+    pcLine++;
 }
 
 return count;
