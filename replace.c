@@ -11,7 +11,7 @@
 /*--------------------------------------------------------------------*/
 
 /* If pcFrom is the empty string, then write string pcLine to stdout
-   and return 0.  Otherwise write string pcLine to stdout with each
+   and return 0.  Otherwise, write string pcLine to stdout with each
    distinct occurrence of string pcFrom replaced with string pcTo,
    and return a count of how many replacements were made.  Make no
    assumptions about the maximum number of replacements or the
@@ -20,12 +20,37 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-  assert(pcLine != NULL);
-  assert(pcTo != NULL);
-  assert(pcFrom != NULL);
-  if (*pcFrom == '\0') {
+    char *pcLineC = (char*) pcLine;
+    char *pcFromC = (char*) pcFrom;
+    char *pcToC = (char*) pcTo;
+    char* pcStartOfString;
+    size_t count;
+    assert(pcLine != NULL);
+    assert(pcTo != NULL);
+    assert(pcFrom != NULL);
+    pcStartOfString = Str_search(pcLineC, pcFromC);
 
+
+  if (*pcFrom == '\0') {
+      while(*pcLineC != '\0'){
+          putchar(*pcLineC)
+          pcLineC++;
+      }
+      return 0;
     }
+
+  while ()
+  while((*pcLineC != '\0') && (pcStartOfString != NULL)  {
+      if (pcStartOfString == NULL) {
+          putchar(*pcLineC);
+          pcLineC++;
+      } else
+      putchar(*pcLineC);
+
+      pcLineC++;
+  }
+
+return count;
 }
 
 /*--------------------------------------------------------------------*/
@@ -61,7 +86,8 @@ int main(int argc, char *argv[])
    pcTo = argv[2];
 
    while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-      /* Insert your code here. */
+
+       uReplaceCount = replaceAndWrite(acLine, pcFrom, pcTo);
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;

@@ -50,8 +50,8 @@ char *Str_concat(char* s1, const char* s2)
 int Str_compare(const char* s1, const char* s2)
 {
     int i;
-    char *s1Copy = (char*) s1;
-    char *pcEnd = s1Copy;
+    const char *s1Copy = (char*) s1;
+    char *pcEnd = (char*) s1Copy;
     assert(s1 != NULL);
     assert(s2 != NULL);
     while (*pcEnd != '\0') {
@@ -71,8 +71,8 @@ char *Str_Search(const char* s1, const char* s2) {
     size_t i = 0;
     size_t j;
     size_t k;
-    char *s1Copy = (char*) s1;
-    char *s2Copy = (char*) s2;
+    const char *s1Copy = (char*) s1;
+    const char *s2Copy = (char*) s2;
     size_t s1Length = Str_getLength(s1Copy);
     size_t s2Length = Str_getLength(s2Copy);
     assert(s1 != NULL);
@@ -86,7 +86,7 @@ char *Str_Search(const char* s1, const char* s2) {
         {
             k++;
             j++;
-            if (j == s2Length) return (s1Copy + i);
+            if (j == s2Length) return (char*) (s1Copy + i);
         }
         i++;
     }
