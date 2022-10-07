@@ -18,44 +18,45 @@
    maximum number of characters in strings pcLine, pcFrom, or pcTo. */
 
 static size_t replaceAndWrite(const char *pcLine,
-                              const char *pcFrom, const char *pcTo)
-{
+                              const char *pcFrom, const char *pcTo) {
     char *pcStartOfTo;
-    char* pcStartOfString;
+    char *pcStartOfString;
     size_t count;
     assert(pcLine != NULL);
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
 
-    pcStartOfTo = (char*)pcTo;
+    pcStartOfTo = (char *) pcTo;
     count = 0;
 
 
-  if (*pcFrom == '\0') {
-      while(*pcLine != '\0'){
-          putc(*pcLine, stdout)
-          pcLine++;
-      }
-      return count;
+    if (*pcFrom != '\0') {
+
+
+        pcStartOfString = Str_search(pcLine, pcFrom);
+
+        while (*pcLine != '\0') && (pcStartOfString != NULL)
+        {
+            while (pcLine != pcStartOfString) {
+                putc(*pcLine, stdout);
+                pcLine++;
+            }
+            while (*pcTo != '\0') {
+                putc(*pcTo, stdout);
+                pcTo++;
+            }
+            pcLine += Str_getLength(pcFrom);
+            pcTo = pcStartOfTo;
+            pcStartOfString = Str_search(pcLine, pcFrom);
+            count++;
+        }
     }
+}
 
-    pcStartOfString = Str_search(pcLine, pcFrom);
-
-  while(*pcLine != '\0') && (pcStartOfString != NULL)  {
-      while(pcLine != pcStartOfString) {
-          putc(*pcLine, stdout);
-          pcLine++;
-      }
-      while(*pcTo != '\0') {
-          putc(*pcTo, stdout);
-          pcTo++;
-      }
-      pcLine += Str_getLength(pcFrom);
-      pcTo = pcStartOfTo;
-      pcStartOfString = Str_search(pcLine, pcFrom);
-      count++;
-      }
-  }
+while(*pcLine != '\0'){
+putc(*pcLine, stdout)
+pcLine++;
+}
 
 return count;
 }
