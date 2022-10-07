@@ -49,7 +49,7 @@ int Str_compare(const char pcs1[], const char pcs2[])
                 return 0;
         }
     }
-    return pcs1[i] - pcs2[i];
+    return (*pcs1[i] - *pcs2[i]);
 }
 
 
