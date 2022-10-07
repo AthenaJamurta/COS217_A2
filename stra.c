@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-
+/* */
 size_t Str_getLength(const char pcs[])
 {
     size_t uLength = 0;
