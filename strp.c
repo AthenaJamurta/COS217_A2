@@ -1,4 +1,6 @@
-
+#include <stdio.h>
+#include <stddef.h>
+#include <assert.h>
 
 size_t Str_getLength(const char *pcSrc)
 {
@@ -13,16 +15,20 @@ size_t Str_getLength(const char *pcSrc)
 char *Str_copy(char *s1, const char *s2) {
 
     char *pcEnd = s2;
+    char *pcPointsToS1 = s1;
     assert(s1 != NULL);
     assert(s2 != NULL);
     while (*pcEnd != '\0') {
-        *(s1+i) = *(s2+i);
+        *pcPointsToS1 = *pcEnd;
         pcEnd++;
+        pcPointsToS1++;
+
     }
+    *pcPointsToS1 = '\0';
     return s1;
 }
 
-char *Str_concat(char *s1, const char *s2)
+char *Str_concat(char* s1, const char* s2)
 {
 
     char *pcEnd = s1;
@@ -36,10 +42,11 @@ char *Str_concat(char *s1, const char *s2)
         pcEnd++;
         s2++;
     }
+    *pcEnd = '\0';
     return s1;
 }
 
-int Str_compare(char *s1, char *s2)
+int Str_compare(const char* s1, const char* s2)
 {
     int i;
     char *pcEnd = s1;
@@ -48,29 +55,29 @@ int Str_compare(char *s1, char *s2)
     while (*pcEnd != '\0') {
         pcEnd++;
     }
-    for (i = 0; s1[i] == s2[i]; i++) {
+    for (i = 0; *s1 == *s2; i++) {
         if (s1[i] == '\0') {
             return 0;
         }
     }
-    return s1[i] - s2[i];
+    return (int)(s1 - s2);
 }
 
 
 
-char *Str_Search(const char *pcs1, const char *pcs2)
+char *Str_Search(const char* s1, const char* s2)
 {
-    int i;
+    size_t i = 0;
+    size_t j = 0;
+    size_t s1Length = Str_getLength();
+
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
     if (*pcs2 == '\0') return (char*)pcs1;
-    while ((*pcs1 != '\0') && (*pcs2 != '\0')) {
-        if (*pcs1 != *pcs2) {
-           i = 0;
-           break;
-        }
-        pcs1++;
-        pcs2++;
-    }
-    if (i)
+
+
+
+
+
+
 }

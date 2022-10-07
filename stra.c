@@ -38,7 +38,7 @@ char *Str_concat(char pcs1[], const char pcs2[])
     return pcs1;
 }
 
-int Str_compare( char pcs1[], char pcs2[])
+int Str_compare(const char pcs1[],const char pcs2[])
 {
     size_t i;
 
