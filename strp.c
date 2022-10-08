@@ -64,31 +64,34 @@ int Str_compare(const char* s1, const char* s2)
     return (int)(s1Copy - s2);
 }
 
-
-
-char *Str_Search(const char* s1, const char* s2) {
-    size_t i = 0; /* counter tracking that traversal doesn't surpass s1 length */
-    size_t j; /* counter tracking that traversal doesn't surpass s2 length */
-    size_t k; /* counter tracking that traversal doesn't surpass s1 length
- *  in inner loop*/
-    char *s1Copy = (char*) s1;
-    char *s2Copy = (char*) s2;
-    size_t s1Length = Str_getLength(s1Copy);
-    size_t s2Length = Str_getLength(s2Copy);
+static int find(const char *s1, const char *s2) {
+    int i; /* determines what to return */
     assert(s1 != NULL);
     assert(s2 != NULL);
-    if (*s2 == '\0') return (char *) s1;
-    while (i < (s1Length - s2Length)) {
-        k = i;
-        j = 0;
-        if ((s1Length + 1 - i) < s2Length) return NULL;
-        while ((k < s1Length) && (j < s2Length) && (*s1Copy == *s2Copy))
-        {
-            k++;
-            j++;
-            if (j == s2Length) return (char*) (s1Copy + i);
+    while((*s1 != '\0') && (*s2!= '\0')){
+        if (*s1 != *s2) {
+            return 0;
         }
-        i++;
+        s1++;
+        s2++;
+    }
+    i = *s2 == '\0';
+    return (i);
+}
+
+char *Str_Search(const char* s1, const char* s2) {
+    int i; /* stores find */
+    assert(s1 != NULL);
+    assert(s2 != NULL);
+    if (*s1 == '\0') {
+        return (char*) s1;
+    }
+    while(*s1 != '\0') {
+        i = find(s1, s2);
+        if (i) {
+            return (char*) s1;
+        }
+        s1++;
     }
     return NULL;
 }

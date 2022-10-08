@@ -59,27 +59,31 @@ return 0;
 }
 
 
+
 char *Str_search(const char pcs1[], const char pcs2[])
 {
-    size_t s1length = Str_getLength(pcs1); /* length of pcs1 */
-    size_t s2length = Str_getLength(pcs2); /* length of pcs2 */
-    size_t i = 0; /* counter tracking that traversal doesn't surpass s1 length */
-    size_t j; /* counter tracking that traversal doesn't surpass s2 length */
-    size_t k; /* counter tracking that traversal doesn't surpass s1 length
- *  in inner loop*/
+    int contains;
+    size_t i; /* counter for outer while */
+    size_t j; /* counter for inner while */
+    size_t s1Length; /* s1's length */
+    size_t s2Length; /*s2's length */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
-    if (pcs2[0] == '\0') return (char*)&pcs1[0];
-    while ( i < s2length) {
-        j = 0;
-        k = i;
-        if ((s1length + 1 - i) < s2length) return NULL;
-        while ((k < s1length) && (j < s2length) && (pcs1[i] == pcs2[i])) {
-            k++;
-            j++;
-            if (j == s2length) return (char*)&pcs1[i];
-        }
+    s1Length = Str_getLength(pcs1);
+    s2Length = Str_getLength(pcs2);
+    i = 0;
+    if (pcs2[0] == '\0') return pcs2[0];
+    while (i < s1Length - s2Length) {
+        contains = 1;
         i++;
+        j = 0;
+        while (j<s2Length) {
+            if (pcs1[j+i] != pcs2[j]) {
+                contains = 0;
+                j++;
+            }
+            if (contains) return pcs1[i];
+        }
     }
-    return NULL;
+return NULL;
 }
