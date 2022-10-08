@@ -20,14 +20,12 @@
 
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo) {
+    size_t i = 0;
     char *pcStartOfTo;
     char *pcStartOfString;
-    size_t count;
     assert(pcLine != NULL);
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
-
-    count = 0;
 
 
     if (*pcFrom != '\0') {
@@ -53,14 +51,14 @@ static size_t replaceAndWrite(const char *pcLine,
 
         }
     }
-}
+
 
 while(*pcLine != '\0'){
     putc(*pcLine, stdout);
     pcLine++;
 }
 
-return count;
+return i;
 }
 
 /*--------------------------------------------------------------------*/
