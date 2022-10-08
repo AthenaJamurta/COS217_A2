@@ -1,3 +1,5 @@
+/* Athena Jamurta */
+
 #include <stdio.h>
 #include <stddef.h>
 #include <assert.h>
@@ -59,31 +61,32 @@ return (int)(pcs1[i] - pcs2[i]);
 }
 
 /* Helper function that takes in a char array pcs1[] and a constant char array pcs2[]
- that both represent a string and outputs an int that examines whether the needle
-is in the haystack. It also takes in an int k that shows where we are in the haystack*/
+ that both represent a string and returns an int that examines whether the needle
+is in the haystack, returning 0 if it is not and != 0 if it is. It also takes in 2
+ ints, k1 and k2, that show where we are in pcs1 and pcs2 respectively*/
 
-static int find(const char pcs1[], const char pcs2[], int k1, int k2) {
+static int ifind(const char pcs1[], const char pcs2[], int k1, int k2) {
     int i; /* determines what to return */
-    int j1 = k1; /* counter for pcs1 */
-    int j2 = k2; /* counter for pcs2 */
+    int counter1 = k1; /* counter for pcs1 */
+    int counter2 = k2; /* counter for pcs2 */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
-    while((pcs1[j1] != '\0') && (pcs2[j2] != '\0')){
-        if (pcs1[j1] != pcs2[j2]) {
+    while((pcs1[counter1] != '\0') && (pcs2[counter2] != '\0')){
+        if (pcs1[counter1] != pcs2[counter2]) {
             return 0;
         }
-        j1++;
-        j2++;
+        counter1++;
+        counter2++;
     }
-    i = (pcs2[j2] == '\0');
+    i = (pcs2[counter2] == '\0');
     return (i);
 }
 
 char *Str_search(const char pcs1[], const char pcs2[])
 {
     int i; /* stores find */
-    int j1 = 0; /* counter for pcs1 */
-    int j2 = 0; /* counter for pcs2 */
+    int counter1 = 0; /* counter for pcs1 */
+    int counter2 = 0; /* counter for pcs2 */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
     if (pcs2[0] == '\0') {
@@ -93,12 +96,12 @@ char *Str_search(const char pcs1[], const char pcs2[])
     if (pcs1[0] == '\0') {
         return NULL;
     }
-    while(pcs1[j1] != '\0') {
-        i = find(pcs1, pcs2, j1, j2);
+    while(pcs1[counter1] != '\0') {
+        i = ifind(pcs1, pcs2, counter1, counter2);
         if (i) {
-            return (char*) (pcs1+j1);
+            return (char*) (pcs1+counter1);
         }
-        j1++;
+        counter1++;
     }
     return NULL;
 }
