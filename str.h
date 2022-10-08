@@ -31,7 +31,7 @@ char *Str_concat(char pcs1[], const char pcs2[]);
  the two strings by comparing their characters and returns 0 if they are equal. Str_compare
  asserts that the input parameters, pcs1 and pcs2, are not null. If one of them
  is null, then the function writes a message to stderr.*/
-int Str_compare(char pcs1[], const char pcs2[]);
+int Str_compare(const char pcs1[], const char pcs2[]);
 
 
 /* The Str_search function takes a char array pcs1[] and a constant char array pcs2[]
