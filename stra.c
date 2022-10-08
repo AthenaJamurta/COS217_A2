@@ -80,7 +80,7 @@ char *Str_search(const char pcs1[], const char pcs2[])
         i++;
         j = 0;
         while (j<s2Length) {
-            if (pcs1[j+i] != pcs2[j]) {
+            if (pcs1[j+i] == pcs2[j]) {
                 contains = 0;
                 j++;
             }
