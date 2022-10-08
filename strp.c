@@ -64,8 +64,10 @@ int Str_compare(const char* s1, const char* s2)
         s2++;
         s1++;
     }
-    return (int)(s1 - s2);
+    return (int)(*s1 - *s2);
 }
+
+
 
 static int find(const char *s1, const char *s2) {
     int i; /* determines what to return */
