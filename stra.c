@@ -79,14 +79,14 @@ char *Str_search(const char pcs1[], const char pcs2[])
     int j = 0; /* counter */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
-    if (s2[0] == '\0') {
+    if (pcs2[0] == '\0') {
         return (char*) pcs1;
     }
 
     if (pcs1[0] == '\0') {
         return NULL;
     }
-    while(s1[j] != '\0') {
+    while(pcs1[j] != '\0') {
         i = find(pcs1, pcs2);
         if (i) {
             return (char*) pcs1;
