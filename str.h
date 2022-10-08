@@ -1,3 +1,5 @@
+/* Athena Jamurta */
+
 #include <stddef.h>
 #ifndef STR_INCLUDED
 #define STR_INCLUDED

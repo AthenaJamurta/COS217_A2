@@ -73,7 +73,7 @@ int Str_compare(const char* s1, const char* s2)
  pcs2 that both represent a string and outputs an int that examines whether the needle
 is in the haystack*/
 
-static int find(const char *s1, const char *s2) {
+static int strp_find(const char *s1, const char *s2) {
     int i; /* determines what to return */
     assert(s1 != NULL);
     assert(s2 != NULL);
@@ -100,7 +100,7 @@ char *Str_search(const char* s1, const char* s2) {
         return NULL;
     }
     while(*s1 != '\0') {
-        i = find(s1, s2);
+        i = strp_find(s1, s2);
         if (i) {
             return (char*) s1;
         }
