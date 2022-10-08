@@ -43,7 +43,7 @@ None
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
 
-It was helpful but not fun
+It was a bit helpful but not fun
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
@@ -58,7 +58,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+none
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on stra.c, and what are your
@@ -66,7 +66,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+none
 
 ------------------------------------------------------------------------
 What warnings does splint generate on strp.c, and what are your
@@ -75,14 +75,14 @@ disagreement after each warning. If there are no warnings, then write
 "None."
 
 
-
+none
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
 disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+none
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -90,7 +90,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+none
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -98,7 +98,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+none
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
