@@ -79,7 +79,7 @@ static int find(const char *s1, const char *s2) {
     return (i);
 }
 
-char *Str_Search(const char* s1, const char* s2) {
+char *Str_search(const char* s1, const char* s2) {
     int i; /* stores find */
     assert(s1 != NULL);
     assert(s2 != NULL);
