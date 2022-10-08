@@ -27,6 +27,7 @@ static size_t replaceAndWrite(const char *pcLine,
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
 
+    pcStartOfTo = (char*)pcTo;
 
     if (*pcFrom != '\0') {
 
