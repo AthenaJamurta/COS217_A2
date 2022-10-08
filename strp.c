@@ -48,20 +48,28 @@ char *Str_concat(char* s1, const char* s2)
 
 int Str_compare(const char* s1, const char* s2)
 {
-    int i;
-    char *s1Copy = (char*) s1;
+
     char *pcEnd = (char*) s1Copy; /* pointer pointing to end of string */
     assert(s1 != NULL);
     assert(s2 != NULL);
     while (*pcEnd != '\0') {
         pcEnd++;
     }
-    for (i = 0; *s1Copy == *s2; i++) {
-        if (s1[i] == '\0') {
+    while(*s1 == *s2) {
+        if ((*(s1) == '\0')&&(*(s2) != '\0')) {
+            return -1;
+        }
+        if ((*(s1) == '\0')&&(*(s2) == '\0')) {
             return 0;
         }
+        if ((*(s1) != '\0')&&(*(s2) == '\0')) {
+            return 1;
+        }
+
+        s2++;
+        s1++;
     }
-    return (int)(s1Copy - s2);
+    return (int)(s1 - s2);
 }
 
 static int find(const char *s1, const char *s2) {
