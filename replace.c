@@ -45,7 +45,7 @@ static size_t replaceAndWrite(const char *pcLine,
                 pcTo++;
             }
 
-            count++
+            count++;
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
             pcStartOfString = strstr(pcLine, pcFrom);
@@ -54,10 +54,10 @@ static size_t replaceAndWrite(const char *pcLine,
     }
 
 
-while(*pcLine != '\0'){
+    while(*pcLine != '\0') {
     putc(*pcLine, stdout);
     pcLine++;
-}
+    }
 
 return i;
 }
