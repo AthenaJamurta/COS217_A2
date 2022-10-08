@@ -89,7 +89,7 @@ char *Str_search(const char* s1, const char* s2) {
     assert(s1 != NULL);
     assert(s2 != NULL);
     if (*s1 == '\0') {
-        return (char*) s1;
+        return NULL;
     }
     while(*s1 != '\0') {
         i = find(s1, s2);
