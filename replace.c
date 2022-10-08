@@ -34,7 +34,7 @@ static size_t replaceAndWrite(const char *pcLine,
     if (*pcFrom != '\0') {
 
 
-        pcStartOfString = Str_search(pcLine, pcFrom);
+        pcStartOfString = strstr(pcLine, pcFrom);
 
         while (*pcLine != '\0') && (pcStartOfString != NULL)
         {
@@ -50,7 +50,7 @@ static size_t replaceAndWrite(const char *pcLine,
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
             pcStartOfString = strstr(pcLine, pcFrom);
-            
+
         }
     }
 }
