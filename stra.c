@@ -72,7 +72,8 @@ static int find(const char pcs1[], const char pcs2[], int k1, int k2) {
         if (pcs1[j1] != pcs2[j2]) {
             return 0;
         }
-        j++;
+        j1++;
+        j2++;
     }
     i = (pcs2[j2] == '\0');
     return (i);
