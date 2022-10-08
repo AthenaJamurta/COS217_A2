@@ -58,6 +58,10 @@ int Str_compare(const char pcs1[],const char pcs2[])
 return (int)(pcs1[i] - pcs2[i]);
 }
 
+/* Helper function that takes in a char array pcs1[] and a constant char array pcs2[]
+ that both represent a string and outputs an int that examines whether the needle
+is in the haystack*/
+
 static int find(const char pcs1[], const char pcs2[]) {
     int i; /* determines what to return */
     int j = 0; /* counter */
@@ -89,7 +93,7 @@ char *Str_search(const char pcs1[], const char pcs2[])
     while(pcs1[j] != '\0') {
         i = find(pcs1, pcs2);
         if (i) {
-            return (char*) pcs1;
+            return (char*) (pcs1+j);
         }
         j++;
     }

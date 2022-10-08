@@ -67,7 +67,9 @@ int Str_compare(const char* s1, const char* s2)
     return (int)(*s1 - *s2);
 }
 
-
+/* Helper function that takes in a const char pointer pcs1 and a constant char pointer
+ pcs2 that both represent a string and outputs an int that examines whether the needle
+is in the haystack*/
 
 static int find(const char *s1, const char *s2) {
     int i; /* determines what to return */

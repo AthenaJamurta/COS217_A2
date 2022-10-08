@@ -26,7 +26,7 @@ char *Str_copy(char pcs1[], const char pcs2[]);
 char *Str_concat(char pcs1[], const char pcs2[]);
 
 
-/* The Str_concat function takes a char array pcs1[] and a constant char array pcs2[]
+/* The Str_concat function takes a const char array pcs1[] and a constant char array pcs2[]
  that both represent a string and outputs an integer return value. The function compares
  the two strings by comparing their characters and returns 0 if they are equal. Str_compare
  asserts that the input parameters, pcs1 and pcs2, are not null. If one of them
@@ -34,7 +34,7 @@ char *Str_concat(char pcs1[], const char pcs2[]);
 int Str_compare(const char pcs1[], const char pcs2[]);
 
 
-/* The Str_search function takes a char array pcs1[] and a constant char array pcs2[]
+/* The Str_search function takes a const char array pcs1[] and a constant char array pcs2[]
  that both represent a string and outputs a char return value. The function searches for
  the string pcs2 in the pcs1 string and returns a pointer to the first character of pcs2
  that appears in pcs1. Str_search asserts that the input parameters, pcs1 and pcs2, are
