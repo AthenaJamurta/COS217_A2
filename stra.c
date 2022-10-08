@@ -61,15 +61,15 @@ return (int)(pcs1[i] - pcs2[i]);
 static int find(const char pcs1[], const char pcs2[]) {
     int i; /* determines what to return */
     int j = 0; /* counter */
-    assert(s1 != NULL);
-    assert(s2 != NULL);
-    while((s1[j] != '\0') && (s2[j] != '\0')){
-        if (s1[j] != s2[j]) {
+    assert(pcs1 != NULL);
+    assert(pcs2 != NULL);
+    while((pcs1[j] != '\0') && (pcs2[j] != '\0')){
+        if (pcs1[j] != pcs2[j]) {
             return 0;
         }
         j++;
     }
-    i = s2[j] == '\0';
+    i = pcs2[j] == '\0';
     return (i);
 }
 
@@ -77,19 +77,19 @@ char *Str_search(const char pcs1[], const char pcs2[])
 {
     int i; /* stores find */
     int j = 0; /* counter */
-    assert(s1 != NULL);
-    assert(s2 != NULL);
+    assert(pcs1 != NULL);
+    assert(pcs2 != NULL);
     if (s2[0] == '\0') {
-        return (char*) s1;
+        return (char*) pcs1;
     }
 
-    if (s1[0] == '\0') {
+    if (pcs1[0] == '\0') {
         return NULL;
     }
     while(s1[j] != '\0') {
-        i = find(s1, s2);
+        i = find(pcs1, pcs2);
         if (i) {
-            return (char*) s1;
+            return (char*) pcs1;
         }
         j++;
     }
