@@ -88,6 +88,10 @@ char *Str_search(const char* s1, const char* s2) {
     int i; /* stores find */
     assert(s1 != NULL);
     assert(s2 != NULL);
+    if (*s2 == '\0') {
+        return (char*) s1;
+    }
+
     if (*s1 == '\0') {
         return NULL;
     }
