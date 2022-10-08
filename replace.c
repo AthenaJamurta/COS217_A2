@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*--------------------------------------------------------------------*/
 
@@ -48,7 +49,7 @@ static size_t replaceAndWrite(const char *pcLine,
             count++
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
-            pcStartOfString = Str_search(pcLine, pcFrom);
+            pcStartOfString = strstr(pcLine, pcFrom);
             ;
         }
     }
