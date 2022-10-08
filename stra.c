@@ -65,7 +65,7 @@ return (int)(pcs1[i] - pcs2[i]);
 is in the haystack, returning 0 if it is not and != 0 if it is. It also takes in 2
  ints, k1 and k2, that show where we are in pcs1 and pcs2 respectively*/
 
-static int strp_find(const char pcs1[], const char pcs2[], int k1, int k2) {
+static int stra_find(const char pcs1[], const char pcs2[], int k1, int k2) {
     int i; /* determines what to return */
     int counter1 = k1; /* counter for pcs1 */
     int counter2 = k2; /* counter for pcs2 */
@@ -97,7 +97,7 @@ char *Str_search(const char pcs1[], const char pcs2[])
         return NULL;
     }
     while(pcs1[counter1] != '\0') {
-        i = strp_find(pcs1, pcs2, counter1, counter2);
+        i = stra_find(pcs1, pcs2, counter1, counter2);
         if (i) {
             return (char*) (pcs1+counter1);
         }
