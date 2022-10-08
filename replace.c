@@ -1,13 +1,13 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author: ???                                                        */
+/* Author: Athena Jamurta                                                        */
 /*--------------------------------------------------------------------*/
 
-/* #include "str.h" */
+#include "str.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <string.h>
+
 
 /*--------------------------------------------------------------------*/
 
@@ -32,7 +32,7 @@ static size_t replaceAndWrite(const char *pcLine,
     if (*pcFrom != '\0') {
 
 
-        pcStartOfString = strstr(pcLine, pcFrom);
+        pcStartOfString = Str_search(pcLine, pcFrom);
 
         while ((*pcLine != '\0') && (pcStartOfString != NULL))
         {
@@ -46,9 +46,9 @@ static size_t replaceAndWrite(const char *pcLine,
             }
 
             i++;
-            pcLine += strlen(pcFrom);
+            pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
-            pcStartOfString = strstr(pcLine, pcFrom);
+            pcStartOfString = Str_search(pcLine, pcFrom);
 
         }
     }
