@@ -48,13 +48,8 @@ char *Str_concat(char* s1, const char* s2)
 
 int Str_compare(const char* s1, const char* s2)
 {
-
-    char *pcEnd = (char*) s1Copy; /* pointer pointing to end of string */
     assert(s1 != NULL);
     assert(s2 != NULL);
-    while (*pcEnd != '\0') {
-        pcEnd++;
-    }
     while(*s1 == *s2) {
         if ((*(s1) == '\0')&&(*(s2) != '\0')) {
             return -1;
