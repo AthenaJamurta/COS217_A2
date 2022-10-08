@@ -50,7 +50,7 @@ static size_t replaceAndWrite(const char *pcLine,
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
             pcStartOfString = strstr(pcLine, pcFrom);
-            ;
+            
         }
     }
 }
