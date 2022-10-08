@@ -58,34 +58,40 @@ int Str_compare(const char pcs1[],const char pcs2[])
 return (int)(pcs1[i] - pcs2[i]);
 }
 
-
+static int find(const char pcs1[], const char pcs2[]) {
+    int i; /* determines what to return */
+    int j = 0; /* counter */
+    assert(s1 != NULL);
+    assert(s2 != NULL);
+    while((s1[j] != '\0') && (s2[j] != '\0')){
+        if (s1[j] != s2[j]) {
+            return 0;
+        }
+        j++;
+    }
+    i = s2[j] == '\0';
+    return (i);
+}
 
 char *Str_search(const char pcs1[], const char pcs2[])
 {
-    int contains;
-    size_t i; /* counter for outer while */
-    size_t j; /* counter for inner while */
-    size_t s1Length; /* s1's length */
-    size_t s2Length; /*s2's length */
-    assert(pcs1 != NULL);
-    assert(pcs2 != NULL);
-    s1Length = Str_getLength(pcs1);
-    s2Length = Str_getLength(pcs2);
-    i = 0;
-    if (pcs2[0] == '\0') return (char*)pcs1;
-    if (pcs1[0] == '\0') return NULL;
-
-    while (i <= (s1Length - s2Length)) {
-        contains = 1;
-        j = 0;
-        while (j<s2Length) {
-            if (pcs1[j+i] != pcs2[j]) {
-                contains = 0;
-                j++;
-            }
-            if (contains) return (char*)(pcs1+i);
-        }
-        i++;
+    int i; /* stores find */
+    int j = 0; /* counter */
+    assert(s1 != NULL);
+    assert(s2 != NULL);
+    if (s2[0] == '\0') {
+        return (char*) s1;
     }
-return NULL;
+
+    if (s1[0] == '\0') {
+        return NULL;
+    }
+    while(s1[j] != '\0') {
+        i = find(s1, s2);
+        if (i) {
+            return (char*) s1;
+        }
+        j++;
+    }
+    return NULL;
 }
