@@ -62,25 +62,27 @@ return (int)(pcs1[i] - pcs2[i]);
  that both represent a string and outputs an int that examines whether the needle
 is in the haystack. It also takes in an int k that shows where we are in the haystack*/
 
-static int find(const char pcs1[], const char pcs2[], int k) {
+static int find(const char pcs1[], const char pcs2[], int k1, int k2) {
     int i; /* determines what to return */
-    int j = k; /* counter */
+    int j1 = k1; /* counter for pcs1 */
+    int j2 = k2; /* counter for pcs2 */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
-    while((pcs1[j] != '\0') && (pcs2[j] != '\0')){
-        if (pcs1[j] != pcs2[j]) {
+    while((pcs1[j1] != '\0') && (pcs2[j2] != '\0')){
+        if (pcs1[j1] != pcs2[j2]) {
             return 0;
         }
         j++;
     }
-    i = (pcs2[j] == '\0');
+    i = (pcs2[j2] == '\0');
     return (i);
 }
 
 char *Str_search(const char pcs1[], const char pcs2[])
 {
     int i; /* stores find */
-    int j = 0; /* counter */
+    int j1 = 0; /* counter for pcs1 */
+    int j2 = 0; /* counter for pcs2 */
     assert(pcs1 != NULL);
     assert(pcs2 != NULL);
     if (pcs2[0] == '\0') {
@@ -90,12 +92,12 @@ char *Str_search(const char pcs1[], const char pcs2[])
     if (pcs1[0] == '\0') {
         return NULL;
     }
-    while(pcs1[j] != '\0') {
-        i = find(pcs1, pcs2, j);
+    while(pcs1[j1] != '\0') {
+        i = find(pcs1, pcs2, j1, j2);
         if (i) {
-            return (char*) (pcs1+j);
+            return (char*) (pcs1+j1);
         }
-        j++;
+        j1++;
     }
     return NULL;
 }
