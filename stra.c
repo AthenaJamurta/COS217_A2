@@ -72,7 +72,9 @@ char *Str_search(const char pcs1[], const char pcs2[])
     s1Length = Str_getLength(pcs1);
     s2Length = Str_getLength(pcs2);
     i = 0;
-    if (pcs2[0] == '\0') return (char*)pcs2;
+    if (pcs2[0] == '\0') return (char*)pcs1;
+    if (pcs1[0] == '\0') return NULL;
+
     while (i < s1Length - s2Length) {
         contains = 1;
         i++;
