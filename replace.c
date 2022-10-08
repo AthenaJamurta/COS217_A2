@@ -27,7 +27,6 @@ static size_t replaceAndWrite(const char *pcLine,
     assert(pcTo != NULL);
     assert(pcFrom != NULL);
 
-    pcStartOfTo = (char *) pcTo;
     count = 0;
 
 
@@ -36,7 +35,7 @@ static size_t replaceAndWrite(const char *pcLine,
 
         pcStartOfString = strstr(pcLine, pcFrom);
 
-        while (*pcLine != '\0') && (pcStartOfString != NULL)
+        while ((*pcLine != '\0') && (pcStartOfString != NULL))
         {
             while (pcLine != pcStartOfString) {
                 putc(*pcLine, stdout);
@@ -46,6 +45,7 @@ static size_t replaceAndWrite(const char *pcLine,
                 putc(*pcTo, stdout);
                 pcTo++;
             }
+
             count++
             pcLine += Str_getLength(pcFrom);
             pcTo = pcStartOfTo;
@@ -56,7 +56,7 @@ static size_t replaceAndWrite(const char *pcLine,
 }
 
 while(*pcLine != '\0'){
-    putc(*pcLine, stdout)
+    putc(*pcLine, stdout);
     pcLine++;
 }
 
